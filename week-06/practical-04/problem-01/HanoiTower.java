@@ -75,7 +75,7 @@ public class HanoiTower {
 
 	private boolean moveOne(int from, int to) throws Exception {
 		TohDisk moving = this.stacks[from].pop();
-		System.out.printf("Move disk %s from stack %s to stack %s (step %s) "
+		System.out.printf("Move disk %s from Pole%s to Pole%s (step %s) "
 				 , moving.weight, from, to, ++stepCount);
 		if (this.stacks[to].push(moving) != null) {
 			System.out.println(stringSucess);
@@ -112,8 +112,8 @@ public class HanoiTower {
 	private boolean moveGroup(int amount, int from, int to) throws Exception {
 		System.out.printf("Moving %s disk(s) from Pole%s to Pole%s\n", amount, from, to);
 		if (from != to) {
-			if (amount == 2) {
-				moveTwo(from, to);
+			if (amount == 1) {
+				moveOne(from, to);
 			} else {
 				moveGroup(amount - 1, from, findAuxiliaryStack(from, to));
 				moveOne(from, to);
