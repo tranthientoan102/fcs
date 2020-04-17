@@ -23,13 +23,13 @@ public class TohMain {
 		};
 
 		tmpInput = setTowerValue(scanner, "How height is your Tower ? ", true);
-		initValue[initIndex] = (tmpInput == null) ? initValue[initIndex] : tmpInput;
+		if (tmpInput != null) initValue[initIndex] = tmpInput;
 		initIndex++;
 		tmpInput = setTowerValue(scanner, "Which stack your Tower is located ? ", false);
-		initValue[initIndex] = (tmpInput == null) ? initValue[initIndex] : tmpInput;
+		if (tmpInput != null) initValue[initIndex] = tmpInput;
 		initIndex++;
 		tmpInput = setTowerValue(scanner, "Which stack your Tower will be moved to ? ", false);
-		initValue[initIndex] = (tmpInput == null) ? initValue[initIndex] : tmpInput;
+		if (tmpInput != null) initValue[initIndex] = tmpInput;
 
 		HanoiTower toh = new HanoiTower(initValue[0], initValue[1], initValue[2]);
 
