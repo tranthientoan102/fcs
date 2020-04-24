@@ -7,6 +7,9 @@
 // Practical Number: 04
 //===================================
 
+/**
+ * ToH's disks
+ */
 public class TohDisk {
 
 	int weight;

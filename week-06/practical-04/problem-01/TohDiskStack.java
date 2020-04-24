@@ -9,11 +9,15 @@
 
 import java.util.Stack;
 
-public class TohBlockStack extends Stack<TohDisk> {
+/**
+ * ToH's stack of disks
+ */
+public class TohDiskStack extends Stack<TohDisk> {
 
 	@Override
 	public TohDisk push(TohDisk item) {
-		if (this.size() == 0 || (this.get(0).weight > item.weight)) {
+		//implement rule for not allow putting bigger disk on top of smaller one
+		if (this.isEmpty() || (this.get(0).weight > item.weight)) {
 			return super.push(item);
 		} else {
 			return null;
