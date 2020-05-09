@@ -16,6 +16,8 @@ public class ShakingPartyConstrainted2 extends ShakingPartyConstrainted {
 
 	@Override
 	public int countMechanic() {
+		// handshakes with remaining couples
+		// + handshakes with previous couple's male members
 		return (super.countMechanic() + getCurrentState());
 	}
 }

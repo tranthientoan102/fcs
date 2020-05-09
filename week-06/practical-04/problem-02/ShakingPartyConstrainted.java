@@ -37,6 +37,7 @@ public class ShakingPartyConstrainted extends ShakingParty {
 
 	@Override
 	public int countMechanic() {
+		// handshakes with remaining couples
 		return super.countMechanic() * 2;
 	}
 
