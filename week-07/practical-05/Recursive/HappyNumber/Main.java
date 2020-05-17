@@ -18,36 +18,34 @@ public class Main {
 
 	}
 
-	public int nextHappyNum(int input) {
-		while (!checkHappyNum(++input)) {
-			System.out.printf("%d T_T\n", input);
+	public int nextHappyNum(int input){
+		while (!checkHappyNum(++input)){
+			System.out.printf("%d T_T\n",input);
 		}
 		return input;
 	}
 
-	public boolean checkHappyNum(int input) {
-		//		System.out.println("\nchecking " + input);
+	public boolean checkHappyNum(int input){
+//		System.out.println("\nchecking " + input);
 		tracking.clear();
 		int result = input;
 
 		while (true) {
 			result = sumSquareDigits(result);
-			//			System.out.print(result + ";");
-			if (result == 1 || tracking.contains(result)) {
+//			System.out.print(result + ";");
+			if (result == 1 || tracking.contains(result))
 				break;
-			} else {
+			else
 				tracking.add(result);
-			}
 		}
 
-		return (result == 1);
+		return (result == 1) ;
 	}
-
 	public int sumSquareDigits(int input) {
 		int result = 0;
-		if (input < 10) {
+		if (input < 10)
 			result = input * input;
-		} else {
+		else {
 			int tmpInput = input;
 			while (tmpInput > 0) {
 				int remaining = tmpInput % 10;

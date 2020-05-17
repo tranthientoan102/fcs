@@ -9,7 +9,6 @@ import java.util.List;
 public class MainForStudent {
 
 	ArrayList<Student> sortedList = new ArrayList<>();
-	int columnFixedWidth = 20;
 
 	public static void main(String[] args) {
 		MainForStudent mainForStudent = new MainForStudent();
@@ -28,57 +27,42 @@ public class MainForStudent {
 
 	}
 
-	public static List<String> readData(String filename) {
-		List<String> lines = Collections.emptyList();
-		try {
-			lines =
-					 Files.readAllLines(Paths.get(filename), StandardCharsets.UTF_8);
-		} catch (IOException e) {
-
-			// do something
-			e.printStackTrace();
-		}
-		return lines;
-	}
-
-	public void printStudents(Student[] students) {
+	int columnFixedWidth = 20;
+	public void printStudents(Student[] students){
 		StringBuilder builder = new StringBuilder();
-		//		builder.append("Student\t\t\tAverageScore\tPhysic\tChemistry\tMaths\n");
+//		builder.append("Student\t\t\tAverageScore\tPhysic\tChemistry\tMaths\n");
 		builder.append(printString("Student"))
-				 .append(printString("AverageScore"))
-				 .append(printString("Physic"))
-				 .append(printString("Chemistry"))
-				 .append(printString("Maths"))
-				 .append("\n");
-		for (Student student : students) {
-			if (student != null) {
+				.append(printString("AverageScore"))
+				.append(printString("Physic"))
+				.append(printString("Chemistry"))
+				.append(printString("Maths"))
+				.append("\n");
+		for (Student student: students){
+			if (student!=null)
 				builder.append(printString(student.getName()))
-						 .append(printString(student.getAverage().toString()))
-						 .append(printString(student.getPhysic().toString()))
-						 .append(printString(student.getChemistry().toString()))
-						 .append(printString(student.getMath().toString()))
+						.append(printString(student.getAverage().toString()))
+						.append(printString(student.getPhysic().toString()))
+						.append(printString(student.getChemistry().toString()))
+						.append(printString(student.getMath().toString()))
+						.append("\n");
+			else builder.append(printString("????"))
+						  .append(printString("????"))
+						  .append(printString("????"))
+						  .append(printString("????"))
+						  .append(printString("????"))
 						 .append("\n");
-			} else {
-				builder.append(printString("????"))
-						 .append(printString("????"))
-						 .append(printString("????"))
-						 .append(printString("????"))
-						 .append(printString("????"))
-						 .append("\n");
-			}
 		}
 		System.out.println(builder.toString());
 	}
 
-	private String printString(String content) {
+	private String printString(String content){
 		return printString(content, columnFixedWidth);
 	}
-
-	private String printString(String content, int maxLength) {
-		if (content.length() > maxLength - 3) {
-			content = content.substring(0, maxLength - 3) + "...";
+	private String printString(String content, int maxLength){
+		if (content.length()> maxLength-3){
+			content = content.substring(0,maxLength-3) + "...";
 		} else {
-			content = String.format("%-" + maxLength + "." + maxLength + "s", content);
+			content = String.format("%-"+maxLength + "." + maxLength + "s", content);
 		}
 		return content;
 
@@ -102,10 +86,11 @@ public class MainForStudent {
 
 		if (index == -1) {
 			insertPosition(0, student);
-		} else {
+		}
+		else {
 			for (; index >= 0; index--) {
 				Student pivot = sortedList.get(index);
-				if (pivot != null && student.hasHigherRank(pivot) <= 0) {
+				if (pivot!=null && student.hasHigherRank(pivot)<=0) {
 					insertPosition(index + 1, student);
 					break;
 				} else if (index == 0) {
@@ -118,5 +103,19 @@ public class MainForStudent {
 
 	private void insertPosition(int index, Student student) {
 		sortedList.add(index, student);
+	}
+
+
+	public static List<String> readData(String filename){
+		List<String> lines = Collections.emptyList();
+		try {
+			lines =
+					 Files.readAllLines(Paths.get(filename), StandardCharsets.UTF_8);
+		} catch (IOException e) {
+
+			// do something
+			e.printStackTrace();
+		}
+		return lines;
 	}
 }

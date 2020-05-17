@@ -13,16 +13,16 @@ public class Main {
 	static int largeRef;
 	static Integer[] largeInput;
 
-	public static void setupLargeTest() {
+	public static void setupLargeTest(){
 		Random random = new Random();
 
-		//		largeRef = random.nextInt(largeAmount);
+//		largeRef = random.nextInt(largeAmount);
 
 		largeInput = new Integer[largeAmount];
 		for (int i = 0; i < largeAmount; i++) {
 			largeInput[i] = random.nextInt(largeAmount);
 		}
-		largeRef = largeInput[largeAmount - 1];
+		largeRef = largeInput[largeAmount-1];
 	}
 
 	public static void main(String[] args) {
@@ -32,7 +32,7 @@ public class Main {
 		testCombo(searchAlg, "\n\nRunning test for linear search");
 
 		searchAlg = new BinarySearch();
-		testCombo(searchAlg, "\n\nRunning test for Binary search");
+		testCombo(searchAlg,"\n\nRunning test for Binary search");
 
 		System.out.println("\n\n" + Arrays.toString(test1));
 		System.out.println("index of max value: " + findMaxVal(test1));
@@ -43,7 +43,7 @@ public class Main {
 
 	}
 
-	public static void testCombo(MySearchAlg searchAlg, String msg) {
+	public static void testCombo(MySearchAlg searchAlg, String msg){
 		System.out.println(msg);
 		test(searchAlg, test1, ref);
 		test(searchAlg, test2, ref);
@@ -54,7 +54,7 @@ public class Main {
 	public static void test(MySearchAlg searchAlg, Comparable[] input, Comparable ref) {
 		long startTime = System.currentTimeMillis();
 
-		//		System.out.println("input : " + Arrays.toString(input));
+//		System.out.println("input : " + Arrays.toString(input));
 		System.out.println(searchAlg.search(input, ref));
 		System.out.println(String.format("Finish search in %d ms",
 				 System.currentTimeMillis() - startTime));
@@ -62,11 +62,11 @@ public class Main {
 	}
 
 
-	public static int findMaxVal(Comparable[] input) {
-		int maxValIndex = 0;
+	public static int findMaxVal(Comparable[] input){
+		int maxValIndex=0;
 		Comparable max = input[maxValIndex];
-		for (int i = 0; i < input.length; i++) {
-			if (input[i].compareTo(max) > 0) {
+		for (int i=0; i < input.length; i++){
+			if (input[i].compareTo(max)>0){
 				maxValIndex = i;
 			}
 		}

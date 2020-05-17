@@ -7,10 +7,9 @@ public class MergeSort extends MySortAlg {
 		return mergeSortRecursion(array);
 	}
 
-	private int[] mergeSortRecursion(int[] inputs) {
-		if (inputs.length == 1) {
-			return inputs;
-		}
+	private int[] mergeSortRecursion(int[] inputs){
+		if (inputs.length ==1) return inputs;
+
 
 		int[] result = new int[inputs.length];
 
@@ -18,31 +17,27 @@ public class MergeSort extends MySortAlg {
 		int[] lower = new int[middleIndex];
 		int[] upper = new int[inputs.length - middleIndex];
 		for (int index = 0; index < inputs.length; index++) {
-			if (index < middleIndex) {
+			if (index < middleIndex)
 				lower[index] = inputs[index];
-			} else {
-				upper[index - middleIndex] = inputs[index];
-			}
+			else
+				upper[index- middleIndex]= inputs[index];
 		}
 		lower = mergeSortRecursion(lower);
 		upper = mergeSortRecursion(upper);
 
 		ArrayDeque<Integer> lowerQueue = new ArrayDeque<>();
-		for (int lowerElement : lower) {
+		for (int lowerElement : lower)
 			lowerQueue.add(lowerElement);
-		}
 		ArrayDeque<Integer> upperQueue = new ArrayDeque<>();
-		for (int upperElement : upper) {
+		for (int upperElement : upper)
 			upperQueue.add(upperElement);
-		}
 
 		ArrayDeque<Integer> mergeQueue = (ArrayDeque<Integer>) merge(lowerQueue, upperQueue);
-		for (int i = 0; i < inputs.length; i++) {
+		for(int i = 0; i < inputs.length; i++)
 			result[i] = mergeQueue.poll();
-		}
 
-		//		System.out.println("inputs: " + Arrays.toString(inputs));
-		//		System.out.println("sorted: " + Arrays.toString(result));
+//		System.out.println("inputs: " + Arrays.toString(inputs));
+//		System.out.println("sorted: " + Arrays.toString(result));
 		return result;
 	}
 

@@ -25,8 +25,7 @@ public class Main {
 
 
 	}
-
-	public static void testWrapper(MySortAlg sortAlg) {
+	public static void testWrapper(MySortAlg sortAlg){
 		System.out.println(test(sortAlg.sort(input1), sorted1));
 		System.out.println(test(sortAlg.sort(input2), sorted2));
 		System.out.println(test(sortAlg.sort(input3), sorted3));
@@ -47,8 +46,7 @@ public class Main {
 		}
 
 	}
-
-	public static int findSmallestSum(int[] array) {
+	public static int findSmallestSum(int[] array){
 		return new InsertionSort().sort(array)[0];
 
 	}
