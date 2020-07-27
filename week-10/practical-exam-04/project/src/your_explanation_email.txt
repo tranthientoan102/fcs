@@ -1,0 +1,12 @@
+Dear manager,
+
+The problem (1), was due to function Insertion::sortStringByIndex was not implemented yet
+I done implementing it;
+
+The problem (2), was due to the staff list was not loaded at the moment you choose option 6,
+I done fixing it by initializing it earlier;
+
+The problem (3), was due to functions in SelectionSort is not implemented,
+I done implementing function SelectionSort::sortIntByIndex first, other functions will be implemented later;
+
+Kind regards, Thien Toan Tran - a1808080
